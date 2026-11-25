@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Vaaniq Settings</title>
+  <style>
+    body { width: 340px; font-family: "Segoe UI", sans-serif; background: #1c1c22; color: #fff; padding: 12px; margin: 0; }
+    h3 { margin: 0 0 8px 0; }
+    label { display: block; font-size: 12px; margin-top: 10px; margin-bottom: 4px; color: #b8b8c0; }
+    input { width: 100%; padding: 6px; border-radius: 6px; border: 1px solid #3a3a45; background: #26262e; color: #fff; box-sizing: border-box; }
+    button { margin-top: 14px; width: 100%; padding: 8px; border: none; border-radius: 6px; background: #6c5ce7; color: #fff; cursor: pointer; font-weight: 600; }
+    button:disabled { opacity: 0.6; cursor: wait; }
+    button.ok { background: #4cd137; }
+    .hint { font-size: 11px; color: #8a8a95; margin-top: 4px; }
+    .divider { margin: 14px 0 10px 0; border-top: 1px solid #2f2f3a; padding-top: 10px; }
+    .divider h4 { margin: 0 0 6px 0; font-size: 12px; color: #b8b8c0; text-transform: uppercase; letter-spacing: 0.5px; }
+    .cmd-list { display: flex; flex-direction: column; gap: 6px; max-height: 360px; overflow-y: auto; padding-right: 4px; }
+    .cmd-group { background: #26262e; border-radius: 8px; padding: 8px 10px; }
+    .cmd-group .title { font-weight: 700; font-size: 12px; color: #a29bfe; margin-bottom: 4px; }
+    .cmd-group .phrases { font-size: 11px; color: #d0d0d8; line-height: 1.6; }
+    .cmd-group .phrases code { background: #1c1c22; padding: 1px 5px; border-radius: 4px; color: #ffeaa7; font-size: 11px; }
+    .cmd-list::-webkit-scrollbar { width: 6px; }
+    .cmd-list::-webkit-scrollbar-thumb { background: #3a3a45; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <h3>🎙 Vaaniq</h3>
+
+  <label>Wake Word (optional)</label>
+  <input id="wakeWord" placeholder="hey vaaniq" />
+  <div class="hint">You don't need to say it - clicking Start Listening already activates the mic.</div>
+
+  <label>Default Seek Seconds</label>
+  <input id="seekSeconds" type="number" min="1" step="1" />
+
+  <label>Recognition Language</label>
+  <input id="language" placeholder="en-IN" />
+  <div class="hint">Examples: en-US, en-IN, en-GB, hi-IN, es-ES</div>
+
+  <button id="save">Save Settings</button>
+
+  <div class="divider">
+    <h4>Available Voice Commands</h4>
+    <div class="cmd-list" id="cmdList"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

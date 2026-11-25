@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "Vaaniq - Hands-free YouTube Voice Control",
+    "version": "1.2.0",
+    "description": "Say 'Hey Vaaniq' and control YouTube hands-free: forward, speed, next/previous video, skip ad, volume, replay, and more.",
+  
+    "permissions": ["storage", "activeTab", "scripting"],
+  
+    "background": {
+      "service_worker": "background.js"
+    },
+  
+    "action": {
+      "default_popup": "popup.html",
+      "default_title": "Vaaniq Voice Control"
+    },
+  
+    "content_scripts": [
+      {
+        "matches": ["*://www.youtube.com/*"],
+        "js": [
+          "commands/command-registry.js",
+          "content.js"
+        ],
+        "css": ["overlay.css"],
+        "run_at": "document_idle"
+      }
+    ],
+  
+    "minimum_chrome_version": "102"
+  }

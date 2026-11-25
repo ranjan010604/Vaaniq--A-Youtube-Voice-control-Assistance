@@ -1,0 +1,41 @@
+#vaaniq-overlay {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 230px;
+    background: rgba(28, 28, 34, 0.95);
+    color: #fff;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 12px;
+    border-radius: 12px;
+    padding: 10px;
+    z-index: 2147483647;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+    user-select: none;
+  }
+  #vaaniq-header { display: flex; align-items: center; gap: 6px; cursor: move; margin-bottom: 8px; }
+  #vaaniq-title { flex: 1; font-weight: 700; }
+  #vaaniq-mic.active { animation: vaaniq-pulse 1s infinite; }
+  @keyframes vaaniq-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  #vaaniq-status { width: 8px; height: 8px; border-radius: 50%; background: #4cd137; display: inline-block; }
+  #vaaniq-toggle { cursor: pointer; padding: 0 4px; }
+  #vaaniq-overlay.vaaniq-collapsed #vaaniq-transcript,
+  #vaaniq-overlay.vaaniq-collapsed #vaaniq-buttons,
+  #vaaniq-overlay.vaaniq-collapsed #vaaniq-mic-toggle { display: none; }
+  #vaaniq-mic-toggle {
+    width: 100%; padding: 8px; border: none; border-radius: 8px;
+    background: #6c5ce7; color: #fff; cursor: pointer; font-weight: 600;
+    margin-bottom: 8px;
+  }
+  #vaaniq-mic-toggle.vaaniq-mic-on { background: #e84118; }
+  #vaaniq-transcript {
+    min-height: 28px; font-size: 11px; color: #c8c8d0;
+    margin-bottom: 8px; word-break: break-word;
+  }
+  #vaaniq-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .vaaniq-btn {
+    padding: 6px 4px; border: none; border-radius: 6px;
+    background: #2f2f3a; color: #fff; cursor: pointer; font-size: 11px;
+  }
+  .vaaniq-btn:hover { background: #3a3a48; }
+  .vaaniq-btn.vaaniq-flash { background: #6c5ce7; }
